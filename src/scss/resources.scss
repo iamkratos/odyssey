@@ -1,0 +1,31 @@
+$small: 'min-width: 767px';
+$medium: 'min-width: 992px';
+$large: 'min-width: 1200px';
+$xl: 'min-width: 1800px';
+
+@mixin bp($point) {
+	@if $point == small {
+		@media ($small) {
+			@content;
+		}
+	} @else if $point == medium {
+		@media ($medium) {
+			@content;
+		}
+	} @else if $point == large {
+		@media ($large) {
+			@content;
+		}
+	} @else if $point == xl {
+		@media ($xl) {
+			@content;
+		}
+	}
+}
+
+@mixin transition($transition) {
+	-moz-transition: $transition;
+	-o-transition: $transition;
+	-webkit-transition: $transition;
+	transition: $transition;
+}

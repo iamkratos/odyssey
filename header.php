@@ -12,7 +12,7 @@
 
 <?php
 	// Connect to the Browsersync server
-	$dev_hostname = "dev.wordpress";
+	$dev_hostname = "localhost:8000";
 	if( (strpos($_SERVER['SERVER_NAME'], ".") === false) || ($_SERVER['SERVER_NAME'] === $dev_hostname) ) {
 		echo "<script type=\"text/javascript\" id=\"__bs_script__\">document.write(\"<script async src='http://HOST:3000/browser-sync/browser-sync-client.js'><\/script>\".replace(\"HOST\", window.location.hostname));</script>";
 	}
@@ -21,21 +21,15 @@
 <body <?php body_class(); ?>>
 <div class="site-container">
 
-	<header class="site-header">
-		<div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
-			<button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
-			<div class="title-bar-title">
-				<a class="site-brand" href="<?php bloginfo('url'); ?>" title="<?php bloginfo('name'); ?>" rel="home"><?php bloginfo('name'); ?></a>
+	<header id="primary-nav">
+		<div class="inner-wrap">
+			<div class="logo-wrap">
+				<h1>Bike</h1>
 			</div>
-		</div>
 
-		<div class="top-bar" id="responsive-menu">
-			<div class="top-bar-container">
-				<nav class="top-bar-left">
-					<ul class="menu vertical medium-horizontal menu" data-dropdown-menu>
-						<li class="hide-for-small-only">
-							<a class="site-brand" href="<?php bloginfo('url'); ?>" title="<?php bloginfo('name'); ?>" rel="home"><?php bloginfo('name'); ?></a>
-						</li>
+			<div class="links-wrap">
+				<nav class="desktop-nav" >
+					<ul>
 						<?php wp_nav_menu(array(
 							'theme_location' => 'primary',
 							'container' => false,
@@ -45,7 +39,9 @@
 					</ul>
 				</nav>
 			</div>
-		</div>
+		</div>						
 	</header>
 
 	<div class="site-content">
+
+	HAHAHA
