@@ -12,10 +12,10 @@ var path = require('path');
  */
 var webpackConfig = require('./webpack.config');
 
-webpackConfig["plugins"].push(
-  new webpack.LoaderOptionsPlugin({
-    debug: true
-  })
+webpackConfig['plugins'].push(
+	new webpack.LoaderOptionsPlugin({
+		debug: true
+	})
 );
 var bundler = webpack(webpackConfig);
 
@@ -23,39 +23,39 @@ var bundler = webpack(webpackConfig);
  * Reload all devices when bundle is complete
  * or send a fullscreen error message to the browser instead
  */
-bundler.plugin('done', function (stats) {
-  if (stats.hasErrors() || stats.hasWarnings()) {
-    return browserSync.sockets.emit('fullscreen:message', {
-      title: "Webpack Error:",
-      body: stripAnsi(stats.toString()),
-      timeout: 100000
-    });
-  }
-  browserSync.reload();
+bundler.plugin('done', function(stats) {
+	if (stats.hasErrors() || stats.hasWarnings()) {
+		return browserSync.sockets.emit('fullscreen:message', {
+			title: 'Webpack Error:',
+			body: stripAnsi(stats.toString()),
+			timeout: 100000
+		});
+	}
+	browserSync.reload();
 });
 
 /**
  * Run Browsersync and use middleware for Hot Module Replacement
  */
 browserSync.init({
-  open: false,
-  logFileChanges: false,
-  port: 3000,
-  ui: { port: 3100 },
-  proxy: 'localhost:80',
-  middleware: [
-    webpackDevMiddleware(bundler, {
-      publicPath: webpackConfig.output.publicPath,
-      stats: {
-        colors: true
-      }
-    })
-  ],
-  plugins: ['bs-fullscreen-message'],
-  files: [
-    path.join(__dirname, '../assets/main.bundle.css'),
-    path.join(__dirname, '../assets/main.bundle.js'),
-    path.join(__dirname, '../**/*.php'),
-    path.join(__dirname, '../**/*.html')
-  ]
+	open: false,
+	logFileChanges: false,
+	port: 8888,
+	ui: { port: 8999 },
+	proxy: 'localhost:80',
+	middleware: [
+		webpackDevMiddleware(bundler, {
+			publicPath: webpackConfig.output.publicPath,
+			stats: {
+				colors: true
+			}
+		})
+	],
+	plugins: ['bs-fullscreen-message'],
+	files: [
+		path.join(__dirname, '../assets/main.bundle.css'),
+		path.join(__dirname, '../assets/main.bundle.js'),
+		path.join(__dirname, '../**/*.php'),
+		path.join(__dirname, '../**/*.html')
+	]
 });
