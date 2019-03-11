@@ -1,14 +1,5 @@
-// Import Foundation 
-import 'script-loader!what-input/dist/what-input';
-import 'script-loader!foundation-sites/dist/js/foundation';
+// Import the apps styles | do not touch this
+import sass from '../scss/app.scss';
 
-// Import the apps styles
-import sass from '../scss/app.scss'
-
-// Import our modules
-import './modules/_header.js'
-
-// Foundation init
-$(function() {
-  $(document).foundation();
-});
+// Import our modules | to keep this organized, I'd like you to break down your JS into modules. Example: _header.js
+import './modules/_header.js';
