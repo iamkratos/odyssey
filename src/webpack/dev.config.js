@@ -3,7 +3,7 @@ const merge = require('webpack-merge');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-
+const autoprefixer = require('autoprefixer');
 const baseConfig = require('./base.config.js');
 
 module.exports = merge(baseConfig, {
@@ -22,7 +22,15 @@ module.exports = merge(baseConfig, {
 							options: { sourceMap: true }
 						},
 
-						{ loader: 'postcss-loader', options: { sourceMap: false } },
+						{
+							loader: 'postcss-loader',
+							options: {
+								plugins: () =>
+									autoprefixer({
+										browsers: ['last 3 versions', '> 1%']
+									})
+							}
+						},
 						{
 							loader: 'sass-resources-loader',
 							options: {

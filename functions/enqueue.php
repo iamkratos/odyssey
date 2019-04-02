@@ -6,14 +6,6 @@ function mytheme_enqueue_scripts() {
   if ( ! is_admin() ) {
 
     /**
-     * jQuery
-     * We want to use the modern CDN version of jQuery, not the version shipped with WordPress
-     */
-    wp_deregister_script("jquery");
-    wp_register_script("jquery", "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js", FALSE, "3.2.1", true);
-    wp_enqueue_script("jquery");
-
-    /**
      * Development styles and scripts
      * Use when in development mode (using `yarn start`)
      * Comment out when in production mode
