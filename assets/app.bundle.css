@@ -8,12 +8,18 @@ img {
   margin: 0 auto; }
 
 header#primary-nav .inner-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   max-width: 90vw;
   margin: 0 auto; }
   header#primary-nav .inner-wrap .logo-wrap {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
     flex: 1; }
   header#primary-nav .inner-wrap .links-wrap {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
     flex: 1; }
     header#primary-nav .inner-wrap .links-wrap nav {
       text-align: right; }
@@ -24,10 +30,16 @@ header#primary-nav .inner-wrap {
   padding: 15px 15px;
   display: inline-block;
   cursor: pointer;
+  -webkit-transition-property: opacity, -webkit-filter;
   transition-property: opacity, -webkit-filter;
+  -o-transition-property: opacity, filter;
   transition-property: opacity, filter;
   transition-property: opacity, filter, -webkit-filter;
+  -webkit-transition-duration: 0.15s;
+  -o-transition-duration: 0.15s;
   transition-duration: 0.15s;
+  -webkit-transition-timing-function: linear;
+  -o-transition-timing-function: linear;
   transition-timing-function: linear;
   font: inherit;
   color: inherit;
@@ -67,10 +79,16 @@ header#primary-nav .inner-wrap {
   background-color: #000;
   border-radius: 4px;
   position: absolute;
+  -webkit-transition-property: -webkit-transform;
   transition-property: -webkit-transform;
+  -o-transition-property: transform;
   transition-property: transform;
   transition-property: transform, -webkit-transform;
+  -webkit-transition-duration: 0.15s;
+  -o-transition-duration: 0.15s;
   transition-duration: 0.15s;
+  -webkit-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
   transition-timing-function: ease; }
 
 .hamburger-inner::before,
@@ -89,10 +107,16 @@ header#primary-nav .inner-wrap {
 
 .hamburger--slider .hamburger-inner::before {
   top: 10px;
+  -webkit-transition-property: opacity, -webkit-transform;
   transition-property: opacity, -webkit-transform;
+  -o-transition-property: transform, opacity;
   transition-property: transform, opacity;
   transition-property: transform, opacity, -webkit-transform;
+  -webkit-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
   transition-timing-function: ease;
+  -webkit-transition-duration: 0.15s;
+  -o-transition-duration: 0.15s;
   transition-duration: 0.15s; }
 
 .hamburger--slider .hamburger-inner::after {
